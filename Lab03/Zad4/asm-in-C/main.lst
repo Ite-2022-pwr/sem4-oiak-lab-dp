@@ -1,0 +1,13 @@
+     1                                  BITS 64
+     2                                  
+     3                                  section .data
+     4                                      global string
+     5                                      global integer
+     6                                      
+     7 00000000 48656C6C6F20776F72-         string db "Hello world!", 0
+     7 00000009 6C642100           
+     8 0000000D 1A000000                    integer dd 26
+     9                                  
+    10                                  section .rodata
+    11                                      global pi
+    12 00000000 C3F54840                    pi dd 3.14
