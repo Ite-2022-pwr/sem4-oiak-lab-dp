@@ -1,0 +1,26 @@
+     1                                  section .data
+     2 00000000 0000                        fpu dw 0
+     3                                  
+     4                                  section .text
+     5                                      global set_fpu
+     6                                      global get_fpu
+     7                                  
+     8                                  get_fpu:
+     9 00000000 55                          push rbp
+    10 00000001 4889E5                      mov rbp, rsp
+    11                                  
+    12 00000004 9BD93C25[00000000]          fstcw [fpu]
+    13 0000000C 668B0425[00000000]          mov ax, [fpu]
+    14                                      
+    15 00000014 C9                          leave
+    16 00000015 C3                          ret
+    17                                  
+    18                                  set_fpu:
+    19 00000016 55                          push rbp
+    20 00000017 4889E5                      mov rbp, rsp
+    21                                  
+    22 0000001A 6689F8                      mov ax, di
+    23 0000001D D928                        fldcw [rax]
+    24                                      
+    25 0000001F C9                          leave
+    26 00000020 C3                          ret
